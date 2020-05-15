@@ -13,6 +13,13 @@ const Header = () => {
           </Link>
         </div>
       </nav>
+      <div className="nav-filters">
+        <ul className="items">
+          <li className="item">Top picks</li>
+          <li className="item">New Quizzes</li>
+          <li className="item">All Categories</li>
+        </ul>
+      </div>
     </header>
   )
 }

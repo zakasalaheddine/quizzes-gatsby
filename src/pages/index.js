@@ -46,7 +46,7 @@ const IndexPage = () => (
     <SEO title="Home" />
     <div className="columns is-multiline">
       {quizzes.map(quiz => (
-        <div className="column is-one-quarter">
+        <div className="column is-one-third">
           <HomeQuiz quiz={quiz} />
         </div>
       ))}

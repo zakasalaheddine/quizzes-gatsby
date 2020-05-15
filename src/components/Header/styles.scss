@@ -8,3 +8,18 @@
     width: auto;
   }
 }
+.nav-filters{
+  ul > li {
+    display: inline;
+  }
+  .items{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    .item{
+      padding: 10px 20px;
+      text-transform: uppercase;
+      font-weight: bold;
+    }
+  }
+}

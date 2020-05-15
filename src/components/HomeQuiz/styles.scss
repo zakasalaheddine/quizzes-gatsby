@@ -1,0 +1,33 @@
+.home-quiz{
+  position: relative;
+  height: 200px;
+  overflow: hidden;
+  background-color: #000000;
+  .title{
+    position: absolute;
+    bottom: -60px;
+    color: #ffffff;
+    font-size: 24px;
+    left: 10px;
+    transition: .2s ease-in all;
+  }
+  .image{
+    img{
+      height: 200px;
+      width: 100%;
+      object-fit: cover;
+      opacity: 1;
+      transition: .3s ease all;
+    }
+  }
+  &:hover{
+    .title{
+      bottom: 10px;
+    }
+    .image{
+      img{
+        opacity: .2;
+      }
+    }
+  }
+}

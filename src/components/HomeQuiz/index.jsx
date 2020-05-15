@@ -1,4 +1,5 @@
 import React from 'react'
+import './styles.scss'
 
 const HomeQuiz = ({ quiz }) => {
   return (
@@ -6,7 +7,7 @@ const HomeQuiz = ({ quiz }) => {
       <figure class="image">
         <img src={quiz.image} alt={quiz.title} />
       </figure>
-      <h2>{quiz.title}</h2>
+      <h2 className="title">{quiz.title}</h2>
     </article>
   )
 }

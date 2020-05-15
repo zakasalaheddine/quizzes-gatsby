@@ -2,6 +2,7 @@ import React from 'react'
 
 import '../../app.scss';
 import Header from '../Header';
+import Footer from '../Footer';
 const Layout = ({ children }) => {
   return (
     <>
@@ -9,9 +10,7 @@ const Layout = ({ children }) => {
       <main className="container main">
         {children}
       </main>
-      <footer>
-        Footer
-      </footer>
+      <Footer />
     </>
   )
 }

@@ -1,11 +1,11 @@
 import React from 'react'
 import './styles.scss'
 
-const StartQuiz = ({ quiz }) => {
+const StartQuiz = ({ quiz, onStart }) => {
   return (
     <article className="single-quiz">
       <h2 className="title">{quiz.title}</h2>
-      <span className="category">{quiz.category}</span>
+      <span className="category has-shadow">{quiz.category}</span>
       <p className="info">Created by: <span className="author-name">{quiz.author}</span> | <span className="date">{quiz.createdAt}</span></p>
       <div class="card">
         <div class="card-image">
@@ -18,7 +18,7 @@ const StartQuiz = ({ quiz }) => {
         </div>
         <div className="card-footer">
           <div className="card-footer-item">
-            <button className="button is-primary">Start the Quiz</button>
+            <button className="button is-primary" onClick={onStart}>Start the Quiz</button>
           </div>
         </div>
       </div>

@@ -6,11 +6,11 @@ const StartQuiz = ({ quiz, onStart }) => {
     <article className="single-quiz">
       <h2 className="title">{quiz.title}</h2>
       <span className="category has-shadow">{quiz.category}</span>
-      <p className="info">Created by: <span className="author-name">{quiz.author}</span> | <span className="date">{quiz.createdAt}</span></p>
+      <p className="info">Created by: <span className="author-name">{quiz.author}</span> | <span className="date">{quiz.created_at}</span></p>
       <div className="card">
         <div className="card-image">
           <figure className="image is-16by9">
-            <img src={quiz.image} alt={quiz.title} />
+            <img src={quiz.image.publicURL} alt={quiz.title} />
           </figure>
         </div>
         <div className="card-content">

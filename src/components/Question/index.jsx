@@ -15,7 +15,7 @@ const Question = ({ selectedQuestion, onAnswer = null, onNextClick = null, lastQ
           (image && image !== '') && (
             <div class="card-image">
               <figure class="image is-16by9">
-                <img src={image} alt={question} />
+                <img src={image.publicURL} alt={question} />
               </figure>
             </div>
           )

@@ -98,6 +98,7 @@ const isQuestionsArrayHasMore = (questions, currentQuestion) => {
   questions.map(question => {
     if (question.id !== currentQuestion.id && question.isDone === false)
       hasMore = true
+    return question
   })
   return hasMore
 }

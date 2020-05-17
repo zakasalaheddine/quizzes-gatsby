@@ -7,7 +7,7 @@ const Answer = ({ answer, isSelected = false, disabled = false, onClick = null }
       {
         answer.image && (
           <figure class="image">
-            <img src={answer.image} />
+            <img src={answer.image.publicURL} alt={answer.answer}/>
           </figure>
         )
       }

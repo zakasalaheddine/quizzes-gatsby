@@ -1,23 +1,38 @@
 import React from "react"
-import { Link } from "gatsby"
+import { Link, graphql } from "gatsby"
 import Layout from "../components/Layout"
 import SEO from "../components/seo"
 import HomeQuiz from "../components/HomeQuiz"
-import { QUIZZES } from "../fakeData"
 
-const IndexPage = () => (
-  <Layout>
-    <SEO title="Home" />
-    <div className="columns is-multiline">
-      {QUIZZES.map(quiz => (
-        <div className="column is-one-third">
-          <Link to="/single">
-            <HomeQuiz quiz={quiz} />
-          </Link>
-        </div>
-      ))}
-    </div>
-  </Layout>
-)
-
+const IndexPage = ({ data }) => {
+  const { allStrapiQuiz } = data
+  console.log(allStrapiQuiz)
+  return (
+    <Layout>
+      <SEO title="Home" />
+      <div className="columns is-multiline">
+        {allStrapiQuiz.nodes.map(quiz => (
+          <div className="column is-one-third" key={quiz.slug}>
+            <Link to={`/${quiz.slug}`}>
+              <HomeQuiz quiz={quiz} />
+            </Link>
+          </div>
+        ))}
+      </div>
+    </Layout>
+  )
+}
+export const query = graphql`
+  {
+    allStrapiQuiz {
+      nodes {
+        title
+        slug
+        image {
+          publicURL
+        }
+      }
+    }
+  }
+`
 export default IndexPage

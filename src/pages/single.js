@@ -1,8 +1,16 @@
-import React, { useState } from "react"
+import React, { useState, useReducer, useEffect } from "react"
 import Layout from "../components/Layout"
 import StartQuiz from "../components/StartQuiz"
 import { Link } from "gatsby"
 import HomeQuiz from "../components/HomeQuiz"
+import Question from "../components/Question"
+import { QuizReducer } from "../reducers/QuizReducer"
+import {
+  startQuiz,
+  setQuestions,
+  answerOnQuiz,
+  nextQuestion,
+} from "../actions/QuizActions"
 
 const el = {
   id: 6,
@@ -49,6 +57,39 @@ const el = {
         },
       ],
     },
+    {
+      id: 2,
+      question: "What parody issqdqsdsqdhot from?",
+      image:
+        "https://images.beano.com/store/ec40d046ef3e68ade08e6d0a335c5359f434871c07ee5413877cf7c6e431?auto=compress%2Cformat&bg=ffe300&dpr=1&fit=max&rect=129%2C145%2C1662%2C935&w=300",
+      isQuestionInImage: false,
+      answers: [
+        {
+          id: 1,
+          answer: "sqdqsdsq Food",
+          image: null,
+          isCorrect: false,
+        },
+        {
+          id: 2,
+          answer: "Bad saasa",
+          image: null,
+          isCorrect: false,
+        },
+        {
+          id: 3,
+          answer: "Bad sqdsqdsqd",
+          image: null,
+          isCorrect: false,
+        },
+        {
+          id: 4,
+          answer: "dsqdsqdsq Guts",
+          image: null,
+          isCorrect: false,
+        },
+      ],
+    },
   ],
 }
 const quizzes = [
@@ -78,24 +119,39 @@ const quizzes = [
   },
 ]
 const Single = () => {
-  const [isStarted, setIsStarted] = useState(false)
+  const [state, dispatch] = useReducer(QuizReducer)
   const handleStartQuiz = () => {
-    setIsStarted(true)
+    dispatch(setQuestions(el.questions))
+    dispatch(startQuiz())
+  }
+  const answerCurrentQuestion = answer => {
+    dispatch(answerOnQuiz(answer))
+  }
+  const nextQuestionHandler = () => {
+    dispatch(nextQuestion())
   }
   return (
     <Layout>
       <div className="columns single">
-        <div className="column is-two-thirds">
-          {isStarted ? (
-            "TEST"
+        <div className="column is-two-thirds main">
+          {state && state.quizStared ? (
+            state.currentQuestion && (
+              <Question
+                selectedQuestion={state.currentQuestion}
+                showNext={state.enableNext}
+                onAnswer={answerCurrentQuestion}
+                lastQuestion={state.showShowMeResults}
+                onNextClick={nextQuestionHandler}
+              />
+            )
           ) : (
             <StartQuiz quiz={el} onStart={handleStartQuiz} />
           )}
         </div>
-        <div className="column">
+        <div className="column sidebar">
           <h3 className="title">Explore Quizzes</h3>
           {quizzes.map(quiz => (
-            <Link to="/single">
+            <Link to="/single" key={quiz.id}>
               <HomeQuiz quiz={quiz} />
             </Link>
           ))}

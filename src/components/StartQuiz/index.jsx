@@ -7,14 +7,14 @@ const StartQuiz = ({ quiz, onStart }) => {
       <h2 className="title">{quiz.title}</h2>
       <span className="category has-shadow">{quiz.category}</span>
       <p className="info">Created by: <span className="author-name">{quiz.author}</span> | <span className="date">{quiz.createdAt}</span></p>
-      <div class="card">
-        <div class="card-image">
-          <figure class="image is-16by9">
+      <div className="card">
+        <div className="card-image">
+          <figure className="image is-16by9">
             <img src={quiz.image} alt={quiz.title} />
           </figure>
         </div>
-        <div class="card-content">
-          <div class="content">{quiz.description}</div>
+        <div className="card-content">
+          <div className="content">{quiz.description}</div>
         </div>
         <div className="card-footer">
           <div className="card-footer-item">

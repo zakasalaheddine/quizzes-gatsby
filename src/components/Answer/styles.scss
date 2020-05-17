@@ -1,10 +1,11 @@
 .answer {
-  .button{
+  cursor: pointer;
+  .button {
     font-weight: bold;
     outline: none;
   }
   .is-selected {
     background-color: #fd9644;
-    color: #FFFFFF;
+    color: #ffffff;
   }
 }

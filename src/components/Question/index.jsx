@@ -11,15 +11,20 @@ const Question = ({ selectedQuestion, onAnswer = null, onNextClick = null, lastQ
         <header class="card-header">
           <h1 class="card-header-title"> {question}</h1>
         </header>
-        <div class="card-image">
-          <figure class="image is-16by9">
-            <img src={image} alt={question} />
-          </figure>
-        </div>
+        {
+          (image && image !== '') && (
+            <div class="card-image">
+              <figure class="image is-16by9">
+                <img src={image} alt={question} />
+              </figure>
+            </div>
+          )
+        }
+
         <div className="card-content columns is-multiline is-mobile">
           {
             answers && answers.map((el, idx) => (
-              <Answer onClick={() => { onAnswer(el) }} answer={el.answer} key={idx} isSelected={el.isSelected} />
+              <Answer onClick={() => { onAnswer(el) }} answer={el} key={idx} isSelected={el.isSelected} />
             ))
           }
         </div>

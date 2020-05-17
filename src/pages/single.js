@@ -27,32 +27,35 @@ const el = {
     {
       id: 1,
       question: "What parody is this Clad Wild Clay screenshot from?",
-      image:
-        "https://images.beano.com/store/113b87bad9eda0d32f2a6d858198caaf6b693b1673c50f690bea61242d3b?auto=compress%2Cformat&dpr=1&fit&format=jpg&frame=1&h&w=780",
+      image: null,
       isQuestionInImage: false,
       answers: [
         {
           id: 1,
           answer: "Bad Food",
-          image: null,
+          image:
+            "https://images.beano.com/store/dbc1e1da7c56e55e16d84c125f9dbccc5fb6d20e369667e264b470dad77c?auto=compress&w=384&h=216&fit=min",
           isCorrect: false,
         },
         {
           id: 2,
           answer: "Bad Feeling",
-          image: null,
+          image:
+            "https://images.beano.com/store/488a6a590f0a7304574fbbe42b1b0cd167aa0a413cf1f8094cc34ddc9202?auto=compress&w=384&h=216&fit=min",
           isCorrect: false,
         },
         {
           id: 3,
           answer: "Bad Blood",
-          image: null,
+          image:
+            "https://images.beano.com/store/4a37ff5a04cc286bbaac4485c1863e46d17182afc9eed7761c5612ab8120?auto=compress&w=384&h=216&fit=min",
           isCorrect: false,
         },
         {
           id: 4,
           answer: "Bad Guts",
-          image: null,
+          image:
+            "https://images.beano.com/store/f7426c11d3c66e783b3b4b1d5b8e53b43d85b4df41438d5b84c0158fe611?auto=compress&w=384&h=216&fit=min",
           isCorrect: false,
         },
       ],

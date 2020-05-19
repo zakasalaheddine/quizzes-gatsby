@@ -25,3 +25,9 @@ export const nextQuestion = () => {
     type: QUIZ_TYPES.NEXT_QUESTION,
   }
 }
+
+export const validateAnswer = () => {
+  return {
+    type: QUIZ_TYPES.VALIDATE_ANSWER,
+  }
+}

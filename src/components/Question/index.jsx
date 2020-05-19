@@ -2,9 +2,8 @@ import React from 'react'
 import Answer from '../Answer';
 import './styles.scss'
 
-const Question = ({ selectedQuestion, onAnswer = null, onNextClick = null, lastQuestion = false, showNext = false }) => {
+const Question = ({ selectedQuestion, onAnswer = null, onNextClick = null, onShowMeResultsClick = null, lastQuestion = false, showNext = false }) => {
   const { image = '', question = '', answers } = selectedQuestion;
-  console.log({ selectedQuestion });
   return (
     <div className="question">
       <div class="card">
@@ -32,7 +31,7 @@ const Question = ({ selectedQuestion, onAnswer = null, onNextClick = null, lastQ
           <div className="card-footer-item">
             {
               lastQuestion ? (
-                <button className="button is-primary is-fullwidth footer-button" disabled={!showNext}>
+                <button className="button is-primary is-fullwidth footer-button" disabled={!showNext} onClick={onShowMeResultsClick}>
                   Show Me Results
                 </button>
               ) : (

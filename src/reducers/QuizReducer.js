@@ -3,6 +3,7 @@ export const QUIZ_TYPES = {
   START_QUIZ: "START_QUIZ",
   CHOOSE_ANSWER: "CHOOSE_ANSWER",
   NEXT_QUESTION: "NEXT_QUESTION",
+  VALIDATE_ANSWER: "VALIDATE_ANSWER",
 }
 
 const InitialState = {
@@ -54,7 +55,7 @@ export const QuizReducer = (state = InitialState, { type, payload = null }) => {
         enableNext: true,
       }
     }
-    case QUIZ_TYPES.NEXT_QUESTION: {
+    case QUIZ_TYPES.VALIDATE_ANSWER: {
       const selectedAnswer = state.currentQuestion.answers.find(
         el => el.isSelected
       )
@@ -62,6 +63,12 @@ export const QuizReducer = (state = InitialState, { type, payload = null }) => {
         question: state.currentQuestion.id,
         answer: selectedAnswer.id,
       })
+      return {
+        ...state
+      }
+    }
+    case QUIZ_TYPES.NEXT_QUESTION: {
+      
       const updatedQuestionsArray = state.questions.map(question => {
         if (question.id === state.currentQuestion.id || question.isDone) {
           return {

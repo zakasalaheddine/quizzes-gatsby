@@ -1,4 +1,5 @@
 import React, { useReducer } from "react"
+import axios from 'axios'
 import Layout from "../components/Layout"
 import StartQuiz from "../components/StartQuiz"
 import { Link, graphql } from "gatsby"
@@ -53,9 +54,11 @@ const SingleQuiz = ({ data }) => {
     dispatch(validateAnswer())
     dispatch(nextQuestion())
   }
-  const showMeResults = () => {
+  const showMeResults = async () => {
     dispatch(validateAnswer())
     console.log(state);
+    const results = await axios.post(`http://localhost:1337/quizzes/${el.id}/results`, {answers : state.answersSelected});
+    console.log(results);
   }
   return (
     <Layout>

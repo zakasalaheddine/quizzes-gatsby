@@ -6,7 +6,7 @@ const Answer = ({ answer, isSelected = false, disabled = false, onClick = null }
     <div className="column is-half answer" onClick={onClick}>
       {
         answer.image && (
-          <figure class="image">
+          <figure className="image">
             <img src={answer.image.publicURL} alt={answer.answer}/>
           </figure>
         )

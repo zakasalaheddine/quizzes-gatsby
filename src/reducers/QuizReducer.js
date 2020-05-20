@@ -4,6 +4,7 @@ export const QUIZ_TYPES = {
   CHOOSE_ANSWER: "CHOOSE_ANSWER",
   NEXT_QUESTION: "NEXT_QUESTION",
   VALIDATE_ANSWER: "VALIDATE_ANSWER",
+  RESET: "RESET",
 }
 
 const InitialState = {
@@ -17,6 +18,11 @@ const InitialState = {
 
 export const QuizReducer = (state = InitialState, { type, payload = null }) => {
   switch (type) {
+    case QUIZ_TYPES.RESET: {
+      return {
+        ...InitialState
+      }
+    }
     case QUIZ_TYPES.SET_QUESTIONS: {
       const questions = payload.map(el => ({ ...el, isDone: false }))
       return {
@@ -64,11 +70,10 @@ export const QuizReducer = (state = InitialState, { type, payload = null }) => {
         answer: selectedAnswer.id,
       })
       return {
-        ...state
+        ...state,
       }
     }
     case QUIZ_TYPES.NEXT_QUESTION: {
-      
       const updatedQuestionsArray = state.questions.map(question => {
         if (question.id === state.currentQuestion.id || question.isDone) {
           return {

@@ -4,7 +4,7 @@ import './styles.scss'
 const HomeQuiz = ({ quiz }) => {
   return (
     <article className="home-quiz">
-      <figure class="image">
+      <figure className="image">
         <img src={quiz.image.publicURL} alt={quiz.title} />
       </figure>
       <h2 className="title">{quiz.title}</h2>

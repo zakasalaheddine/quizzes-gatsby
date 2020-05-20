@@ -6,14 +6,14 @@ const Question = ({ selectedQuestion, onAnswer = null, onNextClick = null, onSho
   const { image = '', question = '', answers } = selectedQuestion;
   return (
     <div className="question">
-      <div class="card">
-        <header class="card-header">
-          <h1 class="card-header-title"> {question}</h1>
+      <div className="card">
+        <header className="card-header">
+          <h1 className="card-header-title"> {question}</h1>
         </header>
         {
           (image && image !== '') && (
-            <div class="card-image">
-              <figure class="image is-16by9">
+            <div className="card-image">
+              <figure className="image is-16by9">
                 <img src={image.publicURL} alt={question} />
               </figure>
             </div>

@@ -6,7 +6,6 @@ import HomeQuiz from "../components/HomeQuiz"
 
 const IndexPage = ({ data }) => {
   const { allStrapiQuiz } = data
-  console.log(allStrapiQuiz)
   return (
     <Layout>
       <SEO title="Home" />

@@ -2,7 +2,8 @@
   cursor: pointer;
   .button {
     font-weight: bold;
-    outline: none;
+    height: auto;
+    flex-direction: column;
   }
   .is-selected {
     background-color: #fd9644;

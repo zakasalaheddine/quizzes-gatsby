@@ -1,18 +1,20 @@
-import React, { useReducer } from "react"
+import React, { useEffect } from "react"
 import axios from 'axios'
 import Layout from "../components/Layout"
 import StartQuiz from "../components/StartQuiz"
 import { Link, graphql } from "gatsby"
 import HomeQuiz from "../components/HomeQuiz"
 import Question from "../components/Question"
-import { QuizReducer } from "../reducers/QuizReducer"
+// import { QuizReducer } from "../reducers/QuizReducer"
 import {
   startQuiz,
   setQuestions,
   answerOnQuiz,
   nextQuestion,
   validateAnswer,
-} from "../actions/QuizActions"
+  resetAll,
+} from "../state/actions/QuizActions"
+import { useSelector, useDispatch } from "react-redux"
 
 const quizzes = [
   {
@@ -42,37 +44,29 @@ const quizzes = [
 ]
 const SingleQuiz = ({ data }) => {
   const { strapiQuiz: el } = data;
-  const [state, dispatch] = useReducer(QuizReducer)
+  const quizState = useSelector(state => state.quiz);
+  const dispatch = useDispatch();
+  useEffect(() => {
+    dispatch(resetAll())
+  }, [dispatch])
   const handleStartQuiz = () => {
     dispatch(setQuestions(el.questions))
     dispatch(startQuiz())
   }
-  const answerCurrentQuestion = answer => {
-    dispatch(answerOnQuiz(answer))
-  }
-  const nextQuestionHandler = () => {
-    dispatch(validateAnswer())
-    dispatch(nextQuestion())
-  }
   const showMeResults = async () => {
     dispatch(validateAnswer())
-    console.log(state);
-    const results = await axios.post(`http://localhost:1337/quizzes/${el.id}/results`, {answers : state.answersSelected});
+    const results = await axios.post(`http://localhost:1337/quizzes/${el.id}/results`, { answers: quizState.answersSelected });
     console.log(results);
   }
   return (
     <Layout>
       <div className="columns single">
         <div className="column is-two-thirds main">
-          {state && state.quizStared ? (
-            state.currentQuestion && (
+          {quizState && quizState.quizStared ? (
+            quizState.currentQuestion && (
               <Question
-                selectedQuestion={state.currentQuestion}
-                showNext={state.enableNext}
-                onAnswer={answerCurrentQuestion}
-                lastQuestion={state.showShowMeResults}
-                onNextClick={nextQuestionHandler}
-                onShowMeResultsClick={showMeResults}
+                showNext={quizState.enableNext}
+                lastQuestion={quizState.showShowMeResults}
               />
             )
           ) : (

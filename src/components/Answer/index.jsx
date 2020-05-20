@@ -1,20 +1,26 @@
 import React from 'react'
 import './styles.scss'
+import { useDispatch } from 'react-redux'
+import { answerOnQuiz } from '../../state/actions/QuizActions';
 
-const Answer = ({ answer, isSelected = false, disabled = false, onClick = null }) => {
+const Answer = ({ answer, isSelected = false, disabled = false }) => {
+  const dispatch = useDispatch();
+  const handleAnswerClick = () => {
+    dispatch(answerOnQuiz(answer))
+  }
   return (
-    <div className="column is-half answer" onClick={onClick}>
-      {
-        answer.image && (
-          <figure className="image">
-            <img src={answer.image.publicURL} alt={answer.answer}/>
-          </figure>
-        )
-      }
+    <div className="column is-half answer" onClick={handleAnswerClick}>
+
       <button
-        className={`button is-large is-fullwidth ${isSelected ? 'is-selected' : ''}`}
+        className={`button is-fullwidth ${isSelected ? 'is-selected' : ''}`}
         disabled={disabled}
-      >
+      >{
+          answer.image && (
+            <figure className="image">
+              <img src={answer.image.publicURL} alt={answer.answer} />
+            </figure>
+          )
+        }
         {answer.answer}
       </button>
     </div>

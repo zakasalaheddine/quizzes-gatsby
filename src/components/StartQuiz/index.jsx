@@ -5,7 +5,7 @@ const StartQuiz = ({ quiz, onStart }) => {
   return (
     <article className="single-quiz">
       <h2 className="title">{quiz.title}</h2>
-      <span className="category has-shadow">{quiz.category}</span>
+      <span className="category has-shadow">{quiz.category.name}</span>
       <p className="info">Created by: <span className="author-name">{quiz.author}</span> | <span className="date">{quiz.created_at}</span></p>
       <div className="card">
         <div className="card-image">

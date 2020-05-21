@@ -15,6 +15,7 @@ import {
   resetAll,
 } from "../state/actions/QuizActions"
 import { useSelector, useDispatch } from "react-redux"
+import QuizResult from "../components/QuizResult"
 
 const quizzes = [
   {
@@ -51,27 +52,24 @@ const SingleQuiz = ({ data }) => {
   }, [dispatch])
   const handleStartQuiz = () => {
     dispatch(setQuestions(el.questions))
-    dispatch(startQuiz())
+    dispatch(startQuiz(el.id, el.type))
   }
-  const showMeResults = async () => {
-    dispatch(validateAnswer())
-    const results = await axios.post(`http://localhost:1337/quizzes/${el.id}/results`, { answers: quizState.answersSelected });
-    console.log(results);
+
+  const renderCorrectCard = () => {
+    if (quizState) {
+      const { quizStared, result, currentQuestion } = quizState;
+      if (quizStared && result)
+        return (<QuizResult />)
+      if (quizStared && currentQuestion)
+        return (<Question />)
+    }
+    return (<StartQuiz quiz={el} onStart={handleStartQuiz} />)
   }
   return (
     <Layout>
       <div className="columns single">
         <div className="column is-two-thirds main">
-          {quizState && quizState.quizStared ? (
-            quizState.currentQuestion && (
-              <Question
-                showNext={quizState.enableNext}
-                lastQuestion={quizState.showShowMeResults}
-              />
-            )
-          ) : (
-              <StartQuiz quiz={el} onStart={handleStartQuiz} />
-            )}
+          {renderCorrectCard()}
         </div>
         <div className="column sidebar">
           <h3 className="title">Explore Quizzes</h3>
@@ -91,8 +89,13 @@ query ($id: Int!) {
     id: strapiId
     title
     slug
+    type
     image {
       publicURL
+    }
+    category {
+      name
+      id
     }
     description
     created_at(fromNow: true)

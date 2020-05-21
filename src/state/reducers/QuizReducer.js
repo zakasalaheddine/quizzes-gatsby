@@ -5,22 +5,26 @@ export const QUIZ_TYPES = {
   NEXT_QUESTION: "NEXT_QUESTION",
   VALIDATE_ANSWER: "VALIDATE_ANSWER",
   RESET: "RESET",
+  SET_RESULT: "SET_RESULT",
 }
 
 const InitialState = {
+  quizId: null,
+  quizType: null,
   questions: [],
   answersSelected: [],
   quizStared: false,
   currentQuestion: null,
   enableNext: false,
   showShowMeResults: false,
+  result: null,
 }
 
 export const QuizReducer = (state = InitialState, { type, payload = null }) => {
   switch (type) {
     case QUIZ_TYPES.RESET: {
       return {
-        ...InitialState
+        ...InitialState,
       }
     }
     case QUIZ_TYPES.SET_QUESTIONS: {
@@ -40,6 +44,8 @@ export const QuizReducer = (state = InitialState, { type, payload = null }) => {
         ...state,
         quizStared: true,
         showShowMeResults: !hasMore,
+        quizId: payload.quizId,
+        quizType: payload.quizType,
       }
     }
     case QUIZ_TYPES.CHOOSE_ANSWER: {
@@ -98,6 +104,13 @@ export const QuizReducer = (state = InitialState, { type, payload = null }) => {
       return {
         ...state,
         showShowMeResults: !hasMore,
+        enableNext: false,
+      }
+    }
+    case QUIZ_TYPES.SET_RESULT: {
+      return {
+        ...state,
+        result: payload,
       }
     }
     default:

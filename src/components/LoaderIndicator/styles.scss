@@ -1,0 +1,16 @@
+.loader-indicator {
+  height: 100%;
+  width: 100%;
+  background: transparent;
+  z-index: 1;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  .loader {
+    height: 100px;
+    width: 100px;
+    border: 2px solid black;
+    border-right-color: transparent;
+    border-top-color: transparent;
+  }
+}

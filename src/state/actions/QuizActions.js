@@ -1,8 +1,9 @@
 import { QUIZ_TYPES } from "../reducers/QuizReducer"
 
-export const startQuiz = () => {
+export const startQuiz = (quizId, quizType) => {
   return {
     type: QUIZ_TYPES.START_QUIZ,
+    payload: { quizId, quizType },
   }
 }
 export const setQuestions = questions => {
@@ -30,5 +31,11 @@ export const validateAnswer = () => {
 export const resetAll = () => {
   return {
     type: QUIZ_TYPES.RESET,
+  }
+}
+export const setResults = results => {
+  return {
+    type: QUIZ_TYPES.SET_RESULT,
+    payload: results,
   }
 }

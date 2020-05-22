@@ -1,17 +1,12 @@
 import React, { useEffect } from "react"
-import axios from 'axios'
 import Layout from "../components/Layout"
 import StartQuiz from "../components/StartQuiz"
 import { Link, graphql } from "gatsby"
 import HomeQuiz from "../components/HomeQuiz"
 import Question from "../components/Question"
-// import { QuizReducer } from "../reducers/QuizReducer"
 import {
   startQuiz,
   setQuestions,
-  answerOnQuiz,
-  nextQuestion,
-  validateAnswer,
   resetAll,
 } from "../state/actions/QuizActions"
 import { useSelector, useDispatch } from "react-redux"

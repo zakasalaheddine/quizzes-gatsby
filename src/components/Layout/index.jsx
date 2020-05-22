@@ -1,16 +1,28 @@
 import React from 'react'
+import { useStaticQuery, graphql } from 'gatsby'
 
 import '../../app.scss';
 import Header from '../Header';
 import Footer from '../Footer';
 const Layout = ({ children }) => {
+  const { allStrapiCategory } = useStaticQuery(graphql`
+  {
+    allStrapiCategory(filter: {showInMenu: {eq: true}}) {
+      nodes {
+        id: strapiId
+        name
+        slug
+      }
+    }
+  }
+  `)
   return (
     <>
-      <Header />
+      <Header categories={allStrapiCategory} />
       <main className="container main">
         {children}
       </main>
-      <Footer />
+      <Footer categories={allStrapiCategory} />
     </>
   )
 }

@@ -10,7 +10,16 @@ const SingleCategory = ({ data }) => {
   return (
     <Layout>
       <SEO title={strapiCategory.name} />
+      <h1 className="title">{strapiCategory.name}</h1>
+      <hr/>
       <div className="columns is-multiline">
+        {
+          strapiCategory.quizzes.length === 0 && (
+            <div className="column is-half">
+              <h3 className="title">No Quiz Found</h3>
+            </div>
+          )
+        }
         {strapiCategory.quizzes.map(quiz => (
           <div className="column is-one-third" key={quiz.slug}>
             <Link to={`/${quiz.slug}`}>

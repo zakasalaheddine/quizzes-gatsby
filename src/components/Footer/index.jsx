@@ -1,7 +1,8 @@
 import React from 'react'
 import './styles.scss'
+import { Link } from 'gatsby';
 
-const Footer = () => {
+const Footer = ({ categories }) => {
   return (
     <footer className="footer">
       <div className="container">
@@ -10,11 +11,14 @@ const Footer = () => {
             QUIZV.Com
           </div>
           <div className="column section">
-            <h3 className="title">Links</h3>
+            <h3 className="title">CATEGORIES</h3>
             <ul>
-              <li>Categories</li>
-              <li>New Quizzes</li>
-              <li>TOP Picks</li>
+              <Link to="/categories"><li className="item">All Categories</li></Link>
+              {
+                categories && categories.nodes.map(category => (
+                  <Link to={`/category/${category.slug}`} key={category.id}><li className="item">{category.name}</li></Link>
+                ))
+              }
             </ul>
           </div>
           <div className="column section">

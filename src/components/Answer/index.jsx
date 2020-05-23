@@ -9,11 +9,12 @@ const Answer = ({ answer, isSelected = false, disabled = false }) => {
     dispatch(answerOnQuiz(answer))
   }
   return (
-    <div className="column is-half answer" onClick={handleAnswerClick}>
+    <div className="column is-half answer">
 
       <button
         className={`button is-fullwidth ${isSelected ? 'is-selected' : ''}`}
         disabled={disabled}
+        onClick={handleAnswerClick}
       >{
           answer.image && (
             <figure className="image">

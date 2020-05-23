@@ -6,7 +6,6 @@ import HomeQuiz from '../components/HomeQuiz';
 
 const SingleCategory = ({ data }) => {
   const { strapiCategory } = data;
-  console.log(strapiCategory)
   return (
     <Layout>
       <SEO title={strapiCategory.name} />

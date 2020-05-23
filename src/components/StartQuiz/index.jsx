@@ -1,12 +1,14 @@
 import React from 'react'
 import './styles.scss'
+import { Link } from 'gatsby';
 
 const StartQuiz = ({ quiz, onStart }) => {
   return (
     <article className="single-quiz">
       <h2 className="title">{quiz.title}</h2>
-      <span className="category has-shadow">{quiz.category.name}</span>
-      <p className="info">Created by: <span className="author-name">{quiz.author}</span> | <span className="date">{quiz.created_at}</span></p>
+      <Link to={`/category/${quiz.category.slug}`}>
+        <span className="category has-shadow">{quiz.category.name}</span>
+      </Link>
       <div className="card">
         <div className="card-image">
           <figure className="image is-16by9">
@@ -22,7 +24,7 @@ const StartQuiz = ({ quiz, onStart }) => {
           </div>
         </div>
       </div>
-    </article>
+    </article >
   )
 }
 export default StartQuiz;

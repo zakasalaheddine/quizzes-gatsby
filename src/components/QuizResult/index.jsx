@@ -2,13 +2,15 @@ import React, { useState } from 'react'
 import { useSelector } from 'react-redux';
 import LoaderIndicator from '../LoaderIndicator'
 
+import './styles.scss'
+
 const QuizResult = () => {
   const [loading, setLoading] = useState(true);
   const { result: { results }, quizType } = useSelector(state => state.quiz)
   let counter = 0;
   const inter = setInterval(() => {
     counter++;
-    if (counter === 5) {
+    if (counter === 3) {
       setLoading(false)
       clearInterval(inter);
     }

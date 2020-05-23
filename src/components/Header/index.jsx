@@ -15,7 +15,7 @@ const Header = ({ categories }) => {
           </Link>
         </div>
       </nav>
-      <div className="nav-filters">
+      <div className="nav-filters is-hidden-mobile">
         <ul className="items">
           {
             categories && categories.nodes.map(category => (

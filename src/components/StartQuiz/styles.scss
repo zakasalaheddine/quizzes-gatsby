@@ -12,17 +12,10 @@
     font-weight: bold;
     box-shadow: 0 2.8px 2.2px rgba(0, 0, 0, 0.034),
       0 6.7px 5.3px rgba(0, 0, 0, 0.048);
-  }
-  .info {
-    margin: 10px 0px;
-    text-transform: uppercase;
-    .author-name,
-    .date {
-      text-transform: capitalize;
-      font-weight: bold;
-    }
+    margin-bottom: 20px;
   }
   .card {
+    margin: 25px;
     .card-footer-item {
       .button {
         text-transform: uppercase;

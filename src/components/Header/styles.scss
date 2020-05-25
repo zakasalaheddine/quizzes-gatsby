@@ -1,29 +1,41 @@
-.navbar {
-  padding-top: 10px;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  img {
-    height: 60px;
-    width: auto;
-  }
-}
-.nav-filters {
-  ul > li {
-    display: inline;
-  }
-  .items {
-    text-decoration: none;
+.navigation-bar {
+  box-shadow: 0 1.5px 2.4px -7px rgba(0, 0, 0, 0.067),
+    0 2.9px 4px -7px rgba(0, 0, 0, 0.097),
+    0 4.4px 5.1px -7px rgba(0, 0, 0, 0.12),
+    0 6.1px 6.4px -7px rgba(0, 0, 0, 0.143),
+    0 8.3px 8.3px -7px rgba(0, 0, 0, 0.173),
+    0 22px 14px -7px rgba(0, 0, 0, 0.24);
+  margin-bottom: 20px;
+  background-color: #F1F1E6;
+  .navbar {
+    background-color: #F1F1E6;
+    padding-top: 10px;
     display: flex;
     align-items: center;
     justify-content: center;
-    a {
+    img {
+      height: 100px;
+      width: auto;
+    }
+  }
+  .nav-filters {
+    ul > li {
+      display: inline;
+    }
+    .items {
       text-decoration: none;
-      color: black;
-      .item {
-        padding: 10px 20px;
-        text-transform: uppercase;
-        font-weight: bold;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      a {
+        font-family: "Commando";
+        font-size: 1.3rem;
+        text-decoration: none;
+        color: #881F6A;
+        .item {
+          padding: 10px 20px;
+          text-transform: uppercase;
+        }
       }
     }
   }

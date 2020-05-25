@@ -1,0 +1,21 @@
+.single-page {
+  margin: 30px;
+  .page-title {
+    font-family: Commando;
+    text-align: center;
+    font-weight: normal;
+    font-size: 2rem;
+    color: #1c1f3d;
+  }
+  .content {
+    .title {
+      font-family: Commando;
+      font-weight: normal;
+      font-size: 1.8rem;
+      color: #1c1f3d;
+    }
+    p {
+      color: #1c1f3d;
+    }
+  }
+}

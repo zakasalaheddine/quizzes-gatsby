@@ -1,2 +1,8 @@
-
-@import '../node_modules/bulma/bulma.sass';
+@import "../node_modules/bulma/bulma.sass";
+@font-face {
+  src: url("../public/fonts/commando.ttf");
+  font-family: "Commando";
+}
+.main {
+  height: 100%;
+}

@@ -20,7 +20,7 @@ const StartQuiz = ({ quiz, onStart }) => {
         </div>
         <div className="card-footer">
           <div className="card-footer-item">
-            <button className="button is-primary" onClick={onStart}>Start the Quiz</button>
+            <button className="button" onClick={onStart}>Start the Quiz</button>
           </div>
         </div>
       </div>

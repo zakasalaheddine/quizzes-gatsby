@@ -26,7 +26,6 @@ const Layout = ({ children }) => {
   return (
     <>
       <Header categories={allStrapiCategory} />
-      <hr />
       <main className="container main">
         {children}
       </main>

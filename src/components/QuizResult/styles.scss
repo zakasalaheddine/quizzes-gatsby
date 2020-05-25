@@ -1,5 +1,21 @@
-.quiz-result{
-  .card{
-    margin: 30px;
+.quiz-result {
+  margin: 30px;
+  .card {
+    border-radius: 10px;
+    overflow: hidden;
+    box-shadow: 0 3px 6px rgba(0,0,0,0.16), 0 3px 6px rgba(0,0,0,0.23);
+    .card-header {
+      .card-header-title {
+        justify-content: center;
+        font-family: "Commando";
+        font-weight: normal;
+        font-size: 1.5rem;
+      }
+    }
+    .card-image{
+      .image{
+        width: 100%;
+      }
+    }
   }
 }

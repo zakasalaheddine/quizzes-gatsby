@@ -12,6 +12,7 @@ import {
 import { useSelector, useDispatch } from "react-redux"
 import QuizResult from "../components/QuizResult"
 import SEO from "../components/seo"
+import './single-quiz.styles.scss'
 
 const SingleQuiz = ({ data }) => {
   const { strapiQuiz: el, allStrapiQuiz } = data;
@@ -43,12 +44,19 @@ const SingleQuiz = ({ data }) => {
           {renderCorrectCard()}
         </div>
         <div className="column sidebar">
-          <h3 className="title">Explore Quizzes</h3>
-          {allStrapiQuiz && allStrapiQuiz.nodes.map(quiz => (
-            <Link to={`/${quiz.slug}`} key={quiz.id}>
-              <HomeQuiz quiz={quiz} />
-            </Link>
-          ))}
+          {
+            (allStrapiQuiz && allStrapiQuiz.nodes.length > 0) && (
+              <>
+              <h3 className="sidebar-title">Explore Quizzes</h3>
+                {allStrapiQuiz.nodes.map(quiz => (
+                <Link to={`/${quiz.slug}`} key={quiz.id}>
+                  <HomeQuiz quiz={quiz} />
+                </Link>
+              ))}
+              </>
+            )
+          }
+
         </div>
       </div>
     </Layout>

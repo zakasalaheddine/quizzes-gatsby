@@ -1,9 +1,31 @@
 .question {
   width: 75%;
   margin: 20px auto;
+  .card {
+    border-radius: 10px;
+    overflow: hidden;
+    box-shadow: 0 3px 6px rgba(0, 0, 0, 0.16), 0 3px 6px rgba(0, 0, 0, 0.23);
+    .card-header {
+      .card-header-title {
+        font-family: "Commando";
+        font-weight: normal;
+        font-size: 1.3rem;
+      }
+    }
+  }
+
   .footer-button {
     text-transform: uppercase;
-    font-weight: bold;
     font-size: 1.5rem;
+    font-family: Commando;
+    background-color: #f6cd40;
+    color: #881f6a;
+    &:hover,
+    &:active,
+    &:disabled,
+    &:focus {
+      background-color: #f6cd40;
+      color: #881f6a;
+    }
   }
 }

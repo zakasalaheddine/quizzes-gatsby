@@ -17,7 +17,13 @@ const QuizResult = () => {
   }, 1000)
   const getProperTitler = () => {
     if (quizType === "Personality") return `You've got ${results.title}`
-    return (<>{`You've got ${results.rights} rights of ${results.totalQuestion} questions`}<br /> {`${results.title}`}</>)
+    return (
+      <>
+        {`You've got ${results.rights} rights of ${results.totalQuestion} questions`}
+        <br />
+        {`${results.title !== undefined ? results.title : ''}`}
+      </>
+    )
   }
   if (loading)
     return (<LoaderIndicator />)
@@ -32,7 +38,7 @@ const QuizResult = () => {
         {
           (results.image && results.image !== '') && (
             <div className="card-image">
-              <figure className="image is-16by9">
+              <figure className="image">
                 <img src={`${process.env.GATSBY_API_URL}${results.image.url}`} alt={results.title} />
               </figure>
             </div>

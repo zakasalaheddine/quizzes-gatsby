@@ -4,11 +4,14 @@
   overflow: hidden;
   background-color: #000000;
   margin: 10px 10px;
-  box-shadow: 0 10px 6px -6px #777;
+  box-shadow: 0 3px 6px rgba(0,0,0,0.16), 0 3px 6px rgba(0,0,0,0.23);
+  border-radius: 10px;
   .title {
     position: absolute;
     bottom: -60px;
     color: #ffffff;
+    font-family: "Commando";
+    font-weight: normal;
     font-size: 24px;
     left: 10px;
     transition: 0.2s ease-in all;

@@ -27,6 +27,13 @@ exports.createPages = async ({ graphql, actions }) => {
           slug
         }
       }
+      allStrapiPage {
+        nodes {
+          id: strapiId
+          title
+          slug
+        }
+      }
     }
   `)
   data.allStrapiQuiz.nodes.forEach(node => {
@@ -43,6 +50,15 @@ exports.createPages = async ({ graphql, actions }) => {
     createPage({
       path: `category/${node.slug}`,
       component: path.resolve(`./src/templates/single-category.jsx`),
+      context: {
+        id: node.id,
+      },
+    })
+  })
+  data.allStrapiPage.nodes.forEach(node => {
+    createPage({
+      path: `/${node.slug}`,
+      component: path.resolve(`./src/templates/single-page.jsx`),
       context: {
         id: node.id,
       },

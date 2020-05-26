@@ -2,7 +2,7 @@ import React from 'react'
 import { Link } from 'gatsby'
 import './styles.scss'
 
-const Header = ({ categories }) => {
+const Header = ({ categories, logo, tagline }) => {
 
 
   return (
@@ -11,8 +11,8 @@ const Header = ({ categories }) => {
         <nav className="navbar" role="navigation" aria-label="main navigation">
           <div className="navbar-brand">
             <Link to='/'>
-              <img src="/images/logo.png"
-                alt="Bulma: Free, open source, and modern CSS framework based on Flexbox" />
+              <img src={logo}
+                alt={tagline} />
             </Link>
           </div>
         </nav>

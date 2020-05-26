@@ -5,7 +5,7 @@ import '../../app.scss';
 import Header from '../Header';
 import Footer from '../Footer';
 const Layout = ({ children }) => {
-  const { allStrapiCategory, allStrapiPage } = useStaticQuery(graphql`
+  const { allStrapiCategory, allStrapiPage, options } = useStaticQuery(graphql`
   {
     allStrapiCategory(filter: {showInMenu: {eq: true}}) {
       nodes {
@@ -21,15 +21,27 @@ const Layout = ({ children }) => {
         slug
       }
     }
+    options: strapiWebsiteOptions {
+      description
+      title
+      tagline
+      logo {
+        publicURL
+      }
+    }
   }
   `)
   return (
     <>
-      <Header categories={allStrapiCategory} />
+      <Header categories={allStrapiCategory} logo={options.logo.publicURL} tagline={options.tagline} />
       <main className="container main">
         {children}
       </main>
-      <Footer categories={allStrapiCategory} pages={allStrapiPage} />
+      <Footer categories={allStrapiCategory}
+        pages={allStrapiPage}
+        logo={options.logo.publicURL}
+        tagline={options.tagline}
+        description={options.description} />
     </>
   )
 }

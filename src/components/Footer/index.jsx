@@ -2,13 +2,16 @@ import React from 'react'
 import './styles.scss'
 import { Link } from 'gatsby';
 
-const Footer = ({ categories, pages }) => {
+const Footer = ({ categories, pages, logo, tagline, description }) => {
   return (
     <footer className="footer">
       <div className="container">
         <div className="columns">
-          <div className="column section">
-            QUIZV.Com
+          <div className="column section infos">
+            <figure class="image is-128x128">
+              <img src={logo} alt={tagline} />
+            </figure>
+            <p>{description}</p>
           </div>
           <div className="column section">
             <h3 className="title">CATEGORIES</h3>

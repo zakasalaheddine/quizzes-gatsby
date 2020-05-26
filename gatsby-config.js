@@ -12,7 +12,7 @@ module.exports = {
         queryLimit: 1000, // Default to 100
         contentTypes: [`quiz`, `category`, `page`],
         //If using single types place them in this array.
-        // singleTypes: [`home-page`, `contact`],
+        singleTypes: [`website-options`],
         // Possibility to login with a strapi user, when content types are not publically available (optional).
         // loginData: {
         //   identifier: "",

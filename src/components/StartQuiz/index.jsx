@@ -1,11 +1,14 @@
 import React from 'react'
 import './styles.scss'
 import { Link } from 'gatsby';
+import ShareButtons from '../ShareButtons';
 
 const StartQuiz = ({ quiz, onStart }) => {
+  const url = typeof window !== 'undefined' ? window.location.href : '';
   return (
     <article className="single-quiz">
       <h2 className="title">{quiz.title}</h2>
+      <ShareButtons url={url} quizImage={quiz.image.publicURL} />
       <Link to={`/category/${quiz.category.slug}`}>
         <span className="category has-shadow">{quiz.category.name}</span>
       </Link>

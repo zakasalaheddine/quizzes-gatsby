@@ -3,8 +3,10 @@ import { useSelector } from 'react-redux';
 import LoaderIndicator from '../LoaderIndicator'
 
 import './styles.scss'
+import ShareButtons from '../ShareButtons';
 
 const QuizResult = () => {
+  const url = typeof window !== 'undefined' ? window.location.href : '';
   const [loading, setLoading] = useState(true);
   const { result: { results }, quizType } = useSelector(state => state.quiz)
   let counter = 0;
@@ -34,6 +36,7 @@ const QuizResult = () => {
           <h1 className="card-header-title">
             {getProperTitler()}
           </h1>
+          <ShareButtons url={url} pinterest={false} />
         </header>
         {
           (results.image && results.image !== '') && (

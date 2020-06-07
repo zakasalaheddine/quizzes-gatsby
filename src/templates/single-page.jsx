@@ -28,7 +28,6 @@ query ($id: Int!){
   strapiPage(strapiId: {eq: $id}) {
     id: strapiId
     title
-    content
     Content {
       title
       content

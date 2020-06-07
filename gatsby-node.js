@@ -42,7 +42,7 @@ exports.createPages = async ({ graphql, actions }) => {
       component: path.resolve(`./src/templates/single-quiz.jsx`),
       context: {
         id: node.id,
-        categoryId: node.category.id,
+        categoryId: node.category ? node.category.id : null,
       },
     })
   })

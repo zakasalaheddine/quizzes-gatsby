@@ -8,7 +8,7 @@ module.exports = {
     {
       resolve: `gatsby-source-strapi`,
       options: {
-        apiURL: `http://localhost:1337`,
+        apiURL: `http://app.quizv.com`,
         queryLimit: 1000, // Default to 100
         contentTypes: [`quiz`, `category`, `page`],
         //If using single types place them in this array.

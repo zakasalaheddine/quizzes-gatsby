@@ -23,7 +23,7 @@ const IndexPage = ({ data }) => {
 }
 export const query = graphql`
   {
-    allStrapiQuiz {
+    allStrapiQuiz(sort: { fields: created_at, order: DESC }) {
       nodes {
         title
         slug

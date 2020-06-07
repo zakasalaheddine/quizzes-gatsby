@@ -8,7 +8,7 @@ const Footer = ({ categories, pages, logo, tagline, description }) => {
       <div className="container">
         <div className="columns">
           <div className="column section infos">
-            <figure class="image is-128x128">
+            <figure className="image is-128x128">
               <img src={logo} alt={tagline} />
             </figure>
             <p>{description}</p>

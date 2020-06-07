@@ -12,13 +12,14 @@ const Question = () => {
   const dispatch = useDispatch();
   const [loading, setLoading] = useState(false);
   const handleNextClick = () => {
+    console.log(`${process.env.GATSBY_API_URL}/quizzes`);
     dispatch(validateAnswer())
     dispatch(nextQuestion())
   }
   const handleShowMeResults = async () => {
     setLoading(true);
     dispatch(validateAnswer())
-    const results = await axios.post(`http://localhost:1337/quizzes/${quizId}/results`, { answers: answersSelected });
+    const results = await axios.post(`${process.env.GATSBY_API_URL}/quizzes/${quizId}/results`, { answers: answersSelected });
     dispatch(setResults(results.data))
     setLoading(false);
   }

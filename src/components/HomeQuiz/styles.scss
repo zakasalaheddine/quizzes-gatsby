@@ -17,7 +17,7 @@
     transition: 0.2s ease-in all;
   }
   .image {
-    img {
+    div {
       height: 200px;
       width: 100%;
       object-fit: cover;
@@ -30,7 +30,7 @@
       bottom: 10px;
     }
     .image {
-      img {
+      div {
         opacity: 0.2;
       }
     }

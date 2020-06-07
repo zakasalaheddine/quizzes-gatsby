@@ -1,5 +1,6 @@
 import React from 'react'
 import { Link } from 'gatsby'
+import Img from 'gatsby-image'
 import './styles.scss'
 
 const Header = ({ categories, logo, tagline }) => {
@@ -11,8 +12,7 @@ const Header = ({ categories, logo, tagline }) => {
         <nav className="navbar" role="navigation" aria-label="main navigation">
           <div className="navbar-brand">
             <Link to='/'>
-              <img src={logo}
-                alt={tagline} />
+              <Img fixed={logo.childImageSharp.fixed} alt={tagline} />
             </Link>
           </div>
         </nav>

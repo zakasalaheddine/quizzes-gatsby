@@ -26,20 +26,28 @@ const Layout = ({ children }) => {
       title
       tagline
       logo {
-        publicURL
+        childImageSharp {
+          fluid{
+            ...GatsbyImageSharpFluid
+          }
+          fixed(height: 90) {
+            ...GatsbyImageSharpFixed
+          }
+        }
       }
     }
   }
+  
   `)
   return (
     <>
-      <Header categories={allStrapiCategory} logo={options.logo.publicURL} tagline={options.tagline} />
+      <Header categories={allStrapiCategory} logo={options.logo} tagline={options.tagline} />
       <main className="container main">
         {children}
       </main>
       <Footer categories={allStrapiCategory}
         pages={allStrapiPage}
-        logo={options.logo.publicURL}
+        logo={options.logo}
         tagline={options.tagline}
         description={options.description} />
     </>

@@ -1,6 +1,7 @@
 import React from 'react'
-import './styles.scss'
 import { Link } from 'gatsby';
+import Img from 'gatsby-image'
+import './styles.scss'
 
 const Footer = ({ categories, pages, logo, tagline, description }) => {
   return (
@@ -9,7 +10,7 @@ const Footer = ({ categories, pages, logo, tagline, description }) => {
         <div className="columns">
           <div className="column section infos">
             <figure className="image is-128x128">
-              <img src={logo} alt={tagline} />
+              <Img fluid={logo.childImageSharp.fluid} alt={tagline} />
             </figure>
             <p>{description}</p>
           </div>

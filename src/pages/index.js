@@ -28,7 +28,11 @@ export const query = graphql`
         title
         slug
         image {
-          publicURL
+          childImageSharp {
+            fluid {
+              ...GatsbyImageSharpFluid
+            }
+          }
         }
       }
     }

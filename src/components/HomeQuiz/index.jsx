@@ -1,4 +1,5 @@
 import React from 'react'
+import Img from 'gatsby-image'
 import './styles.scss'
 
 const HomeQuiz = ({ quiz }) => {
@@ -7,7 +8,8 @@ const HomeQuiz = ({ quiz }) => {
       {
         quiz.image && (
           <figure className="image">
-            <img src={quiz.image.publicURL} alt={quiz.title} />
+            <Img fluid={quiz.image.childImageSharp.fluid} alt={quiz.title} />
+            {/* <img src={quiz.image.publicURL} alt={quiz.title} /> */}
           </figure>
         )
       }

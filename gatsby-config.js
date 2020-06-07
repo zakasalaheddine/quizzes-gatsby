@@ -1,15 +1,15 @@
 module.exports = {
   siteMetadata: {
-    title: `Gatsby Default Starter`,
-    description: `Kick off your next, great Gatsby project with this default starter. This barebones starter ships with the main Gatsby configuration files you might need.`,
-    author: `@gatsbyjs`,
+    title: `QUIZV.COM | Quizv.com front end app`,
+    description: ``,
+    author: `@ZAKA SALAH EDDINE`,
   },
   plugins: [
     {
       resolve: `gatsby-source-strapi`,
       options: {
         apiURL: `http://app.quizv.com`,
-        queryLimit: 1000, // Default to 100
+        // queryLimit: 100, // Default to 100
         contentTypes: [`quiz`, `category`, `page`],
         //If using single types place them in this array.
         singleTypes: [`website-options`],

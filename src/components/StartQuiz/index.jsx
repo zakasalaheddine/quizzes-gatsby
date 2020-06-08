@@ -1,7 +1,8 @@
 import React from 'react'
-import './styles.scss'
 import { Link } from 'gatsby';
+import Img from 'gatsby-image'
 import ShareButtons from '../ShareButtons';
+import './styles.scss'
 
 const StartQuiz = ({ quiz, onStart }) => {
   const url = typeof window !== 'undefined' ? window.location.href : '';
@@ -14,8 +15,8 @@ const StartQuiz = ({ quiz, onStart }) => {
       </Link>
       <div className="card">
         <div className="card-image">
-          <figure className="image is-16by9">
-            <img src={quiz.image.publicURL} alt={quiz.title} />
+          <figure className="image">
+            <Img fluid={quiz.image.childImageSharp.fluid} alt={quiz.title}/>
           </figure>
         </div>
         <div className="card-content">

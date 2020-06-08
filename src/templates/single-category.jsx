@@ -35,7 +35,7 @@ const SingleCategory = ({ data }) => {
   )
 }
 export const query = graphql`
-query ($id: Int!)  {
+query ($id: Int!) {
   strapiCategory(strapiId: {eq: $id}) {
     name
     slug
@@ -44,10 +44,15 @@ query ($id: Int!)  {
       title
       slug
       image {
-        publicURL
+        childImageSharp {
+          fluid {
+            ...GatsbyImageSharpFluid
+          }
+        }
       }
     }
   }
 }
+
 `
 export default SingleCategory;

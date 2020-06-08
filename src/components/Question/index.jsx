@@ -1,9 +1,10 @@
 import React, { useState } from 'react'
 import { useSelector, useDispatch } from 'react-redux';
 import axios from 'axios'
+import Img from 'gatsby-image'
+import { validateAnswer, nextQuestion, setResults } from '../../state/actions/QuizActions';
 import Answer from '../Answer';
 import './styles.scss'
-import { validateAnswer, nextQuestion, setResults } from '../../state/actions/QuizActions';
 
 const Question = () => {
 
@@ -32,8 +33,17 @@ const Question = () => {
         {
           (image && image !== '') && (
             <div className="card-image">
-              <figure className="image is-16by9">
-                <img src={image.publicURL} alt={question} />
+              <figure className="image">
+                {
+                  image.childImageSharp ?
+                    (
+                      <Img fluid={image.childImageSharp.fluid} alt={question} />
+                    ) :
+                    (
+                      <img src={image.publicURL} alt={question} />
+                    )
+                }
+
               </figure>
             </div>
           )

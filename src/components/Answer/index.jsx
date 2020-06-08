@@ -1,7 +1,8 @@
 import React from 'react'
-import './styles.scss'
 import { useDispatch } from 'react-redux'
 import { answerOnQuiz } from '../../state/actions/QuizActions';
+import Img from 'gatsby-image'
+import './styles.scss'
 
 const Answer = ({ answer, isSelected = false, disabled = false }) => {
   const dispatch = useDispatch();
@@ -17,9 +18,7 @@ const Answer = ({ answer, isSelected = false, disabled = false }) => {
         onClick={handleAnswerClick}
       >{
           answer.image && (
-            <figure className="image">
-              <img src={answer.image.publicURL} alt={answer.answer} />
-            </figure>
+            <Img fixed={answer.image.childImageSharp.fixed} alt={answer.answer} />
           )
         }
         {answer.answer}

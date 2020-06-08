@@ -21,6 +21,7 @@ const SingleQuiz = ({ data }) => {
   useEffect(() => {
     dispatch(resetAll())
   }, [dispatch])
+
   const handleStartQuiz = () => {
     dispatch(setQuestions(el.questions))
     dispatch(startQuiz(el.id, el.type))
@@ -47,12 +48,12 @@ const SingleQuiz = ({ data }) => {
           {
             (allStrapiQuiz && allStrapiQuiz.nodes.length > 0) && (
               <>
-              <h3 className="sidebar-title">Explore Quizzes</h3>
+                <h3 className="sidebar-title">Explore Quizzes</h3>
                 {allStrapiQuiz.nodes.map(quiz => (
-                <Link to={`/${quiz.slug}`} key={quiz.id}>
-                  <HomeQuiz quiz={quiz} />
-                </Link>
-              ))}
+                  <Link to={`/${quiz.slug}`} key={quiz.id}>
+                    <HomeQuiz quiz={quiz} />
+                  </Link>
+                ))}
               </>
             )
           }
@@ -71,6 +72,11 @@ query ($id: Int!, $categoryId: Int!) {
     type
     image {
       publicURL
+      childImageSharp {
+          fluid {
+            ...GatsbyImageSharpFluid
+          }
+        }
     }
     category {
       id
@@ -84,12 +90,25 @@ query ($id: Int!, $categoryId: Int!) {
       question
       image {
         publicURL
+        childImageSharp {
+          fluid {
+            ...GatsbyImageSharpFluid
+          }
+        }
       }
       answers: Answers {
         id
         answer
         image {
           publicURL
+          childImageSharp {
+          fluid {
+            ...GatsbyImageSharpFluid
+          }
+          fixed(height: 100) {
+            ...GatsbyImageSharpFixed
+          }
+        }
         }
       }
     }
@@ -101,6 +120,11 @@ query ($id: Int!, $categoryId: Int!) {
       title
       image {
         publicURL
+        childImageSharp {
+          fluid {
+            ...GatsbyImageSharpFluid
+          }
+        }
       }
     }
   }
